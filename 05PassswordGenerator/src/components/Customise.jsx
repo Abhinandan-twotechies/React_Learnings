@@ -15,7 +15,7 @@ function Customise() {
                 <div className="p-4 ">
                     <p className="font-semibold">Manages concent preferences ...</p>
                 </div>
-                <div className="border w-90 h-auto ml-auto mr-auto p-3 rounded-sm flex flex-col gap-4">
+                <div className="border w-90 max-h-40 overflow-y-scroll ml-auto mr-auto p-3 rounded-sm flex flex-col gap-4">
                     <div className="flex justify-between border p-1">
                         <div className="flex gap-5">
                             <button className="bg-gray-400 px-1 text-black">+</button>
@@ -37,7 +37,7 @@ function Customise() {
                         </div>
                         <input type="radio" />
                     </div>
-                </div>    k=
+                </div>    
 
                 <div className=" flex justify-evenly p-2">
                     <button className="bg-gray-800 hover:bg-gray-900  px-4 py-2 rounded-sm cursor-pointer">Nessesary cookie only</button>

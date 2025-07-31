@@ -36,8 +36,8 @@ function App() {
     // console.log(pass);
 
 
-  }, [length, ifchar, ifnum, setPassword]);
-
+  },);
+//  [length, ifchar, ifnum, setPassword]
   // Calling the password generate function
   useEffect(() => {
     passwordGenerator();
