@@ -33,7 +33,7 @@ function Customise() {
                     <div className="flex justify-between border p-1">
                         <div className="flex gap-5">
                             <button className="bg-gray-400 px-1 text-black">+</button>
-                            <p className="font-bold">Hello</p>
+                            <p className="font-bold">Hello 1</p>
                         </div>
                         <input type="radio" />
                     </div>
