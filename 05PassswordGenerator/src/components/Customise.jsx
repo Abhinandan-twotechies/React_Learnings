@@ -1,4 +1,19 @@
+import { useState, useContext} from "react";
+import { UserContext } from "../App";
+
 function Customise({ onClose }) {
+
+    const {data , setData} = useContext(UserContext);
+    console.log(data);
+
+    function handleDataChange(e) {
+        const { name, checked } = e.target;
+        setData(prev => ({
+            ...prev,
+            [name]: checked
+        }));
+    }
+
     return (
         <>
             <div className="w-100 h-160 bg-gray-700 rounded-xl text-white">
@@ -23,27 +38,45 @@ function Customise({ onClose }) {
                             <button className="bg-gray-400 px-1 text-black">+</button>
                             <p className="font-bold">Performance Cookies</p>
                         </div>
-                        <input type="radio" />
+                        <input
+                            type="checkbox"
+                            name="performance"
+                            checked={data.performance || false}
+                            onChange={handleDataChange}
+                        />
                     </div>
                     <div className="flex justify-between border p-1">
                         <div className="flex gap-5">
                             <button className="bg-gray-400 px-1 text-black">+</button>
                             <p className="font-bold">Functional Cookies</p>
                         </div>
-                        <input type="radio" />
+                        <input
+                            type="checkbox"
+                            name="functional"
+                            checked={data.functional  || false}
+                            onChange={handleDataChange}
+                        />
                     </div>
                     <div className="flex justify-between border p-1">
                         <div className="flex gap-5">
                             <button className="bg-gray-400 px-1 text-black">+</button>
-                            <p className="font-bold">Hello 1</p>
+                            <p className="font-bold">Targeted Cookies</p>
                         </div>
-                        <input type="radio" />
+                        <input
+                            type="checkbox"
+                            name="targeted"
+                            checked={data.targeted  || false}
+                            onChange={handleDataChange}
+                        />
                     </div>
+
                 </div>
 
                 <div className=" flex justify-evenly p-2">
                     <button className="bg-gray-800 hover:bg-gray-900  px-4 py-2 rounded-sm cursor-pointer">Nessesary cookie only</button>
-                    <button className="bg-gray-800 hover:bg-gray-900  px-4 py-2 rounded-sm cursor-pointer">Confirm my cookies</button>
+                    <button
+                      onClick={onClose}
+                     className="bg-gray-800 hover:bg-gray-900  px-4 py-2 rounded-sm cursor-pointer">Confirm my cookies</button>
                 </div>
 
             </div>
