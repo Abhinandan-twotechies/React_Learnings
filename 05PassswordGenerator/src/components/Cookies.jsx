@@ -1,4 +1,4 @@
-function Cookies() {
+function Cookies({ onCustomiseClick }) {
 
     return (
         <>
@@ -15,7 +15,9 @@ function Cookies() {
                     <button className="bg-gray-800 hover:bg-gray-900  px-4 py-1 rounded-sm cursor-pointer">Reject All</button>
                 </div>
                 <div className=" text-center">
-                    <button className="bg-gray-800 hover:bg-gray-900 w-59 py-1 rounded-sm cursor-pointer">Customise..</button>
+                    <button
+                    onClick={onCustomiseClick}
+                     className="bg-gray-800 hover:bg-gray-900 w-59 py-1 rounded-sm cursor-pointer">Customise..</button>
                 </div>
 
             </div>

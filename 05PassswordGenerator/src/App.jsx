@@ -8,7 +8,8 @@ function App() {
   const [ifchar, setIfchar] = useState(false);
   const [ifnum, setIfnum] = useState(false);
   const [password, setPassword] = useState("");
-  const [cookie , setCookie] = useState(false)
+  const [cookie, setCookie] = useState(false);
+  const [showCustomise, setShowCustomise] = useState(false);
 
   const passRef = useRef("");
 
@@ -37,7 +38,7 @@ function App() {
 
 
   },);
-//  [length, ifchar, ifnum, setPassword]
+  //  [length, ifchar, ifnum, setPassword]
   // Calling the password generate function
   useEffect(() => {
     passwordGenerator();
@@ -54,19 +55,25 @@ function App() {
     const timer = setTimeout(() => {
       setCookie(true);
       console.log("Coookies");
-      
+
     }, 3000);
-  },[])
+  }, [])
 
 
   return (
     <>
       <div className='relative w-screen h-screen bg-black flex flex-col items-center justify-center'>
-        <div id='customiseUI' className='absolute top-10 left-15'>
-          <Customise/>
-        </div>
-        <div id='cookieui' className='absolute bottom-10 right-10'>
-          {cookie?<Cookies />:""}
+        {showCustomise && (
+          <div className="fixed inset-0 z-50 backdrop-blur-sm bg-white/10 flex items-center justify-center">
+            <div className="relative z-50">
+              <Customise onClose={() => setShowCustomise(false)} />
+            </div>
+          </div>
+        )}
+        <div id="cookieui" className="absolute bottom-10 right-10">
+          {cookie ? <Cookies onCustomiseClick={() => setShowCustomise(true)}
+                    onClose={()=>{setCookie((prev)=>{!prev})}}
+          /> : null}
         </div>
         <div id='passwordui'>
           <div className=' border-2 w-201 bg-gray-400 text-center rounded-tl-lg rounded-tr-lg'>
