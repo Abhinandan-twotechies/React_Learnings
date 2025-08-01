@@ -1,9 +1,9 @@
-import { useState, useContext} from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../App";
 
 function Customise({ onClose }) {
 
-    const {data , setData} = useContext(UserContext);
+    const { data, setData } = useContext(UserContext);
     console.log(data);
 
     function handleDataChange(e) {
@@ -26,9 +26,16 @@ function Customise({ onClose }) {
                 <div className="p-4 mb-3 mt-2">
                     <p>When you visit any of our websites, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you. Because we respect your right to privacy, you can choose not to allow some types of cookies. blocking some types of cookies may impact your experience of the site and the services we are able to offer.</p>
                 </div>
-                <div className=" text-left ml-5">
+                <div className=" text-left ml-5 flex justify-between">
                     <button className="bg-gray-800 hover:bg-gray-900 w-50 py-1 rounded-sm cursor-pointer">Accept all cookies</button>
+                     <select name="cars" id="cars" className="px-2 text-black">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
                 </div>
+        
                 <div className="p-4 ">
                     <p className="font-semibold">Manages concent preferences ...</p>
                 </div>
@@ -53,7 +60,7 @@ function Customise({ onClose }) {
                         <input
                             type="checkbox"
                             name="functional"
-                            checked={data.functional  || false}
+                            checked={data.functional || false}
                             onChange={handleDataChange}
                         />
                     </div>
@@ -65,7 +72,7 @@ function Customise({ onClose }) {
                         <input
                             type="checkbox"
                             name="targeted"
-                            checked={data.targeted  || false}
+                            checked={data.targeted || false}
                             onChange={handleDataChange}
                         />
                     </div>
@@ -75,8 +82,8 @@ function Customise({ onClose }) {
                 <div className=" flex justify-evenly p-2">
                     <button className="bg-gray-800 hover:bg-gray-900  px-4 py-2 rounded-sm cursor-pointer">Nessesary cookie only</button>
                     <button
-                      onClick={onClose}
-                     className="bg-gray-800 hover:bg-gray-900  px-4 py-2 rounded-sm cursor-pointer">Confirm my cookies</button>
+                        onClick={onClose}
+                        className="bg-gray-800 hover:bg-gray-900  px-4 py-2 rounded-sm cursor-pointer">Confirm my cookies</button>
                 </div>
 
             </div>

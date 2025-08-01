@@ -11,12 +11,6 @@ export const UserContext = createContext();
 
 function App() {
 
-   // Customised Data
-  const [data, setData] = useState({
-    performance: false,
-    functional: false,
-    targeted: false
-  })
 
   const [length, setLength] = useState(8);
   const [ifchar, setIfchar] = useState(false);
@@ -65,6 +59,13 @@ function App() {
   }, [password])
 
 
+
+  // Customised Data
+  const [data, setData] = useState({
+    performance: false,
+    functional: false,
+    targeted: false
+  })
   useEffect(() => {
     const timer = setTimeout(() => {
       setCookie(true);
@@ -72,12 +73,6 @@ function App() {
 
     }, 3000);
   }, [])
-
-
- 
-
-  
-  
 
 
 
@@ -101,7 +96,7 @@ function App() {
               onClose={() => { setCookie((prev) => { !prev }) }}
             /> : null}
           </div>
-          
+
           {/* Password generate UI  */}
           <div id='passwordui'>
             <div className=' border-2 w-201 bg-gray-400 text-center rounded-tl-lg rounded-tr-lg'>
@@ -141,8 +136,8 @@ function App() {
             </div>
 
           </div>
-   
-           <ShowCustomise/>
+
+          <ShowCustomise />
         </div>
       </UserContext.Provider>
     </>
