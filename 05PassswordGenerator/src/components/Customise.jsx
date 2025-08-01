@@ -3,7 +3,7 @@ function Customise({ onClose }) {
         <>
             <div className="w-100 h-160 bg-gray-700 rounded-xl text-white">
                 <div className=" flex justify-between p-2 text-center font-bold rounded-tl-xl rounded-tr-xl bg-gray-500 text-xl">
-                    <h1>🍪 Cookies</h1>
+                    <h1>🍪 Cookies hii</h1>
                     <button
                         onClick={onClose}
                         className="bg-gray-400 text-black px-2 py-1 text-sm rounded-sm cursor-pointer hover:bg-red-700 hover:text-white">X</button>
