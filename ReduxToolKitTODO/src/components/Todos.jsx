@@ -18,7 +18,7 @@ function Todos() {
               </li>
               <button
                 onClick={() => dispatch(removeTodo(todo.id))}
-                className='bg-gray-300 cursor-pointer px-2 py-1 bg-red-400 text-white rounded-sm font-semibold'
+                className=' cursor-pointer px-2 py-1 bg-red-400 text-white rounded-sm font-semibold'
               >
                  x
               </button>
