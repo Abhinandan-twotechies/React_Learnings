@@ -1,22 +1,35 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {
+    createSlice
+} from "@reduxjs/toolkit";
 
 const initialState = {
-    cartItems: [],
-    
+    cats: [],
+    isLoading: false,
+
 };
 
 export const cartSlice = createSlice({
-    name: "cart",
+    name: "cats",
     initialState,
     reducers: {
         addToCart: (state, action) => {
             state.cartItems.push(action.payload)
             console.log("Item added to cart:", action.payload);
-            
+
         },
         removeFromCart: (state, action) => {
             state.cartItems = state.cartItems.filter(item => item !== action.payload);
             console.log("Item removed from cart:", action.payload);
+        },
+        getCatsFetch: (state) => {
+            state.isLoading = true;
+        },
+        getCatsSuccess: (state, action) => {
+            state.cats = action.payload;
+            state.isLoading = false;
+        },
+        getCatFaliure: (state) => {
+            state.isLoading = false;
         }
     }
 
@@ -25,7 +38,10 @@ export const cartSlice = createSlice({
 
 export const {
     addToCart,
-    removeFromCart
+    removeFromCart,
+    getCatsFetch,
+    getCatsSuccess,
+    getCatFaliure
 } = cartSlice.actions;
 
 
