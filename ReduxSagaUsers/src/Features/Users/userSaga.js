@@ -9,11 +9,11 @@ import {
 
 //Worker Saga function: will be fired on fetchUsersRequest actions
 function* fetchUsersSaga() {
-  try{
+  try {
     const response = yield call(fetchUsersApi);
     yield put(fetchUsersSuccess(response.data));
   }
-  catch(error){
+  catch (error) {
     yield put(fetchUsersFailure(error.message));
   }
 }
